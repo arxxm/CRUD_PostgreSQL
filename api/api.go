@@ -113,7 +113,7 @@ func (r *Repository) GetProduct(id int) (Product, error) {
 
 	prod := Product{}
 
-	row := r.db.QueryRow("SELECT * FROM products where prod_id = $1", id)
+	row := r.db.QueryRow("SELECT * FROM products WHERE prod_id = $1", id)
 	err := row.Scan(&prod.Id, &prod.Name, &prod.Price)
 	if err != nil {
 		return prod, err
